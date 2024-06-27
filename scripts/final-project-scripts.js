@@ -1,12 +1,18 @@
 const computerPlayerNames = ['DB Cooper', 'Wild Bill', 'El Matador', 'Devilish Dan', 'Al Capone', 'Don Juan'];
 
 let playerName = prompt('Enter your name to play: ');
+let winCount = 0;
+let lossCount = 0;
+
+let player;
+let computer;
+
 
 
 function setupGame()
 {
-    let player = new Player(playerName);
-    let computer = new Player(getComputerName());
+    player = new Player(playerName);
+    computer = new Player(getComputerName());
 }
 
 function getComputerName()
