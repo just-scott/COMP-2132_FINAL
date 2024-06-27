@@ -8,7 +8,7 @@ class Die
     /**
      * @returns {number} a random face on the die, works for a die with any number of faces
      */
-    getDice = function ()
+    rollDie = function ()
     {
         return Math.floor(Math.random() * this.faces) + 1;
     }
