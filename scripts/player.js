@@ -5,6 +5,27 @@ class Player
         this.name = name;
         this.score = 0;
         this.dice = [];
+        this.die = new Die(6);
+    }
+
+    /**
+     * rolls 2 dice and adds them to the dice array
+     */
+    rollDice = function ()
+    {
+        this.dice.push(this.die.rollDie());
+        this.dice.push(this.die.rollDie());
+    }
+
+    /**
+     * clears the dice array
+     */
+    clearDice = function ()
+    {
+        this.dice.forEach(die =>
+        {
+            die.shift();
+        });
     }
 
     /**
