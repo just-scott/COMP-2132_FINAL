@@ -2,4 +2,57 @@
 {
     display: flex;
     flex-direction: row;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+#playerDashboard
+{
+    display: flex;
+    flex-direction: column;
+    border: blue solid 2px;
+    min-width: 25vw;
+}
+
+#computerDashboard
+{
+    display: flex;
+    flex-direction: column;
+    border: green solid 2px;
+    min-width: 25vw;
+}
+
+#gameDisplay
+{
+    display: flex;
+    flex-direction: column;
+    min-width: 50vw;
+    border: red solid 2px;
+}
+
+#scoreBar
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#diceRollingArea
+{
+    min-height: 40vh;
+    border: purple solid 2px;
+}
+
+#gameControls
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#gameStats
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }

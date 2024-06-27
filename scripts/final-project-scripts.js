@@ -1,3 +1,7 @@
+const $playerName = $('#playerName');
+const $playerFirstRoll = $('#playerFirstRoll');
+const $playerFirstRollScore = $('#playerScoreFirstRoll');
+
 const computerPlayerNames = ['DB Cooper', 'Wild Bill', 'El Matador', 'Devilish Dan', 'Al Capone', 'Don Juan'];
 
 let playerName = prompt('Enter your name to play: ');
