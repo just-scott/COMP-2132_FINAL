@@ -10,6 +10,7 @@
 <body>
 
 <div id="gameContainer">
+
     <div id="playerDashboard">
         <div id="playerName" class="gamePlayerNames"></div>
         <div id="playerFirstRoll" class="diceRollContainers">
@@ -28,9 +29,24 @@
             <span id="playerScoreThirdRoll" class="handScores"></span>
         </div>
     </div>
+
     <div id="gameDisplay">
-        
+        <div id="scoreBar">
+            <div>Your score: <span id="playerScore"></span></div>
+            <div id="gameMessage"></div>
+            <div>Opponent score: <span id="computerScore"></span></div>
+        </div>
+        <div id="diceRollingArea"></div>
+        <div id="gameControls">
+            <input id="advanceGame" class="gameControls" type="button" value="Roll!">
+            <input id="helpButton" class="gameControls" type="button" value="Help">
+        </div>
+        <div id="gameStats">
+            <div>Wins: <span id="wins"></span></div>
+            <div>Losses: <span id="losses"></span></div>
+        </div>
     </div>
+
     <div id="computerDashboard">
         <div id="computerName" class="gamePlayerNames"></div>
         <div id="computerFirstRoll" class="diceRollContainers">
@@ -49,6 +65,7 @@
             <span id="computerScoreThirdRoll" class="handScores"></span>
         </div>
     </div>
+
 </div>
 
 </body>
