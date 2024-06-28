@@ -2,6 +2,9 @@ const $playerName = $('#playerName');
 const $playerFirstRoll = $('#playerFirstRoll');
 const $playerFirstRollScore = $('#playerScoreFirstRoll');
 
+const $computerName = $('#computerName');
+
+const $advanceGame = $('#advanceGame');
 const $helpButton = $('#helpButton');
 
 const computerPlayerNames = ['DB Cooper', 'Wild Bill', 'El Matador', 'Devilish Dan', 'Al Capone', 'Don Juan'];
