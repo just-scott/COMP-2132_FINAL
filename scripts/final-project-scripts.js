@@ -28,6 +28,10 @@ function setupGame()
 {
     player = new Player(playerName);
     computer = new Player(getComputerName());
+
+    // $playerName.text(player.name);
+    $computerName.text(computer.name);
+
     playerScore = 0;
     computerScore = 0;
     turnNumber = 0;
@@ -75,3 +79,4 @@ function getDieElement()
     }
     return elementId;
 }
+

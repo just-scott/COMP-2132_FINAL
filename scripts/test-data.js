@@ -9,5 +9,4 @@ $playerFirstRoll.children(':nth-child(2)').attr('src', 'images/die-face-5.png');
 $advanceGame.click(function ()
 {
     setupGame();
-    $computerName.text(computer.name);
 })
