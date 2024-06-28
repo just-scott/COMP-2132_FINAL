@@ -58,9 +58,8 @@
     border: lightgreen 2px solid;
 }
 
-#gameStats > div
+#gameStats > div:nth-child(1)
 {
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 20px;
 }
 
