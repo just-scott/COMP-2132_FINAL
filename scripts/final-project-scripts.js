@@ -93,11 +93,10 @@ function showDiceRolled(dieElement)
         //players turns are even, computer turns are odd
         //so on a player's turn this will evaluate as false (0)
     {//true, computer turn
-        for (let i = 1; i <= computer.dice.length; i++)
-        {// starting our iterator at 1 so we can re-use it for child element selection
-            $displayElemen.children(`:nth-child(${i})`).attr('src', getDieFaceImg(computer.dice[i]));
-            //TODO change getDieElement to return a jquery selector
-            //TODO is there a more elegant way to do this with foreach?
-        }
+        computer.dice.forEach(function (die, i)
+        {
+            $displayElemen.children(`:nth-child(${i})`).attr('src', getDieFaceImg(die));
+        });
+        //TODO change getDieElement to return a jquery selector
     }
 }
