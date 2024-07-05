@@ -1,4 +1,5 @@
 const $playerName = $('#playerName');
+const $playerScore = $('#playerScore');
 const $playerFirstRoll = $('#playerFirstRoll');
 const $playerFirstRollScore = $('#playerScoreFirstRoll');
 
@@ -14,7 +15,7 @@ let winCount = 0;
 let lossCount = 0;
 let playerScore = 0;
 let computerScore = 0;
-let turnNumber = 0;
+let turnNumber = 1;
 
 let player;
 let computer;
@@ -26,6 +27,8 @@ let computer;
  */
 function setupGame()
 {
+    console.log('setting up game');
+
     player = new Player(playerName);
     computer = new Player(getComputerName());
 
@@ -34,7 +37,7 @@ function setupGame()
 
     playerScore = 0;
     computerScore = 0;
-    turnNumber = 0;
+    turnNumber = 1;
 }
 
 /**
@@ -85,17 +88,24 @@ function getDieFaceImg(number)
     return `images/die-face-${number}.png`;
 }
 
-function showDiceRolled(dieElement)
+function showDiceRolled()
 {
     let $displayElement = getDieElement();
 
-    if (turnNumber % 2)
+    if (turnNumber % 2 === 0)
         //players turns are even, computer turns are odd
         //so on a player's turn this will evaluate as false (0)
     {//true, computer turn
         computer.dice.forEach(function (die, i)
         {
-            $displayElement.children(`:nth-child(${i})`).attr('src', getDieFaceImg(die));
+            $displayElement.children(`:nth-child(${i+1})`).attr('src', getDieFaceImg(die));
         });
+    }
+    else
+    {
+        player.dice.forEach(function (die, i)
+        {
+            $displayElement.children(`:nth-child(${i+1})`).attr('src', getDieFaceImg(die));
+        })
     }
 }
