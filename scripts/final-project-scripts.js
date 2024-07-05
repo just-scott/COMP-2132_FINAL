@@ -48,7 +48,7 @@ function getComputerName()
 
 /**
  * gets the id of the element to display a die based on the turn number
- * @returns {string} the id of the element to display a die
+ * @returns {*} the jQuery selector of the element to display a die
  */
 function getDieElement()
 {
@@ -95,7 +95,7 @@ function showDiceRolled(dieElement)
     {//true, computer turn
         computer.dice.forEach(function (die, i)
         {
-            $displayElemen.children(`:nth-child(${i})`).attr('src', getDieFaceImg(die));
+            $displayElement.children(`:nth-child(${i})`).attr('src', getDieFaceImg(die));
         });
     }
 }
