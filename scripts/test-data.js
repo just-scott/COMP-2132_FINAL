@@ -9,11 +9,24 @@ setupGame();
 
 $advanceGame.click(function ()
 {
+    console.log(`player dice pre clear: ${player.dice}`);
     player.clearDice();
+
+    console.log(`player dice should be empty: ${player.dice}`);
     player.rollDice();
+
+    console.log(`player dice after new roll: ${player.dice}`);
+
+    computer.clearDice();
+    computer.rollDice();
+
+    console.log(player.dice);
+    console.log(player.computeScore());
 
     playerScore += player.computeScore();
     $playerScore.text(playerScore);
 
     showDiceRolled();
+
+    turnNumber ++;
 })

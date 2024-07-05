@@ -15,7 +15,7 @@ let winCount = 0;
 let lossCount = 0;
 let playerScore = 0;
 let computerScore = 0;
-let turnNumber = 1;
+let turnNumber = 0;
 
 let player;
 let computer;
@@ -37,7 +37,7 @@ function setupGame()
 
     playerScore = 0;
     computerScore = 0;
-    turnNumber = 1;
+    turnNumber = 0;
 }
 
 /**
@@ -59,22 +59,22 @@ function getDieElement()
 
     switch (turnNumber)
     {
-        case 1:
+        case 0:
             elementId = $('#playerFirstRoll');
             break;
-        case 2:
+        case 1:
             elementId = $('#computerFirstRoll');
             break;
-        case 3:
+        case 2:
             elementId = $('#playerSecondRoll');
             break;
-        case 4:
+        case 3:
             elementId = $('#computerSecondRoll');
             break;
-        case 5:
+        case 4:
             elementId = $('#playerThirdRoll');
             break;
-        case 6:
+        case 5:
             elementId = $('#computerThirdRoll');
             break;
         default:
@@ -92,20 +92,25 @@ function showDiceRolled()
 {
     let $displayElement = getDieElement();
 
-    if (turnNumber % 2 === 0)
+    // console.log(`turn number ${turnNumber}`);
+    // console.log(turnNumber % 2);
+
+    if (turnNumber % 2)
         //players turns are even, computer turns are odd
         //so on a player's turn this will evaluate as false (0)
-    {//true, computer turn
+    {//computer turn
         computer.dice.forEach(function (die, i)
         {
             $displayElement.children(`:nth-child(${i+1})`).attr('src', getDieFaceImg(die));
         });
+
     }
     else
-    {
+    {//player turn
         player.dice.forEach(function (die, i)
         {
             $displayElement.children(`:nth-child(${i+1})`).attr('src', getDieFaceImg(die));
-        })
+        });
+
     }
 }
