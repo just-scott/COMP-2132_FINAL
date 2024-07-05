@@ -92,9 +92,6 @@ function showDiceRolled()
 {
     let $displayElement = getDieElement();
 
-    // console.log(`turn number ${turnNumber}`);
-    // console.log(turnNumber % 2);
-
     if (turnNumber % 2)
         //players turns are even, computer turns are odd
         //so on a player's turn this will evaluate as false (0)
@@ -103,7 +100,6 @@ function showDiceRolled()
         {
             $displayElement.children(`:nth-child(${i+1})`).attr('src', getDieFaceImg(die));
         });
-
     }
     else
     {//player turn
@@ -111,6 +107,5 @@ function showDiceRolled()
         {
             $displayElement.children(`:nth-child(${i+1})`).attr('src', getDieFaceImg(die));
         });
-
     }
 }
