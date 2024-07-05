@@ -22,10 +22,7 @@ class Player
      */
     clearDice = function ()
     {
-        this.dice.forEach(die =>
-        {
-            die.shift();
-        });
+        this.dice = [];
     }
 
     /**
