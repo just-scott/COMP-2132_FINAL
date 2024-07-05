@@ -23,8 +23,8 @@ $advanceGame.click(function ()
     console.log(player.dice);
     console.log(player.computeScore());
 
-    playerScore += player.computeScore();
-    $playerScore.text(playerScore);
+    player.score += player.computeScore();
+    $playerScore.text(player.score);
 
     showDiceRolled();
 

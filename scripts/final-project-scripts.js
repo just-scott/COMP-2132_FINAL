@@ -4,6 +4,7 @@ const $playerFirstRoll = $('#playerFirstRoll');
 const $playerFirstRollScore = $('#playerScoreFirstRoll');
 
 const $computerName = $('#computerName');
+const $computerScore = $('#computerScore');
 
 const $advanceGame = $('#advanceGame');
 const $helpButton = $('#helpButton');
@@ -13,8 +14,6 @@ const computerPlayerNames = ['DB Cooper', 'Wild Bill', 'El Matador', 'Devilish D
 let playerName = prompt('Enter your name to play: ');
 let winCount = 0;
 let lossCount = 0;
-let playerScore = 0;
-let computerScore = 0;
 let turnNumber = 0;
 
 let player;
@@ -35,9 +34,12 @@ function setupGame()
     // $playerName.text(player.name);
     $computerName.text(computer.name);
 
-    playerScore = 0;
-    computerScore = 0;
+    player.score = 0;
+    computer.score = 0;
     turnNumber = 0;
+
+    $playerScore.text(player.score);
+    $computerScore.text(computer.score);
 }
 
 /**
@@ -109,3 +111,7 @@ function showDiceRolled()
         });
     }
 }
+
+//TODO Change turn structure so that the game is 3 turns long, each turn both player and computer roll
+//TODO update showDiceRolled to work with the new turn structure
+//TODO update getDieElement to work with new turn structure. Maybe add new class to the elems and select both
