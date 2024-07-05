@@ -52,27 +52,27 @@ function getComputerName()
  */
 function getDieElement()
 {
-    let elementId = '';
+    let elementId;
 
     switch (turnNumber)
     {
         case 1:
-            elementId = 'playerFirstRoll';
+            elementId = $('#playerFirstRoll');
             break;
         case 2:
-            elementId = 'computerFirstRoll';
+            elementId = $('#computerFirstRoll');
             break;
         case 3:
-            elementId = 'playerSecondRoll';
+            elementId = $('#playerSecondRoll');
             break;
         case 4:
-            elementId = 'computerSecondRoll';
+            elementId = $('#computerSecondRoll');
             break;
         case 5:
-            elementId = 'playerThirdRoll';
+            elementId = $('#playerThirdRoll');
             break;
         case 6:
-            elementId = 'computerThirdRoll';
+            elementId = $('#computerThirdRoll');
             break;
         default:
             console.log(`Error: turn number is ${turnNumber}`);
@@ -97,6 +97,5 @@ function showDiceRolled(dieElement)
         {
             $displayElemen.children(`:nth-child(${i})`).attr('src', getDieFaceImg(die));
         });
-        //TODO change getDieElement to return a jquery selector
     }
 }
