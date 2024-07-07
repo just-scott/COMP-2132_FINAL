@@ -57,32 +57,35 @@ function getComputerName()
  */
 function getDieElement()
 {
-    let elementId;
+    let $elementsSelector;
 
     switch (turnNumber)
     {
         case 0:
-            elementId = $('#playerFirstRoll');
+            // elementId = $('#playerFirstRoll');
+            $elementsSelector = $('.firstRoll');
             break;
         case 1:
-            elementId = $('#computerFirstRoll');
+            // elementId = $('#computerFirstRoll');
+            $elementsSelector = $('.secondRoll');
             break;
         case 2:
-            elementId = $('#playerSecondRoll');
+            // elementId = $('#playerSecondRoll');
+            $elementsSelector = $('.thirdRoll');
             break;
-        case 3:
-            elementId = $('#computerSecondRoll');
-            break;
-        case 4:
-            elementId = $('#playerThirdRoll');
-            break;
-        case 5:
-            elementId = $('#computerThirdRoll');
-            break;
+        // case 3:
+        //     elementId = $('#computerSecondRoll');
+        //     break;
+        // case 4:
+        //     elementId = $('#playerThirdRoll');
+        //     break;
+        // case 5:
+        //     elementId = $('#computerThirdRoll');
+        //     break;
         default:
             console.log(`Error: turn number is ${turnNumber}`);
     }
-    return elementId;
+    return $elementsSelector;
 }
 
 function getDieFaceImg(number)
@@ -94,24 +97,45 @@ function showDiceRolled()
 {
     let $displayElement = getDieElement();
 
-    if (turnNumber % 2)
-        //players turns are even, computer turns are odd
-        //so on a player's turn this will evaluate as false (0)
-    {//computer turn
-        computer.dice.forEach(function (die, i)
+    // if (turnNumber % 2)
+    //     //players turns are even, computer turns are odd
+    //     //so on a player's turn this will evaluate as false (0)
+    // {//computer turn
+    //     computer.dice.forEach(function (die, i)
+    //     {
+    //         $displayElement.children(`:nth-child(${i+1})`).attr('src', getDieFaceImg(die));
+    //     });
+    // }
+    // else
+    // {//player turn
+    //     player.dice.forEach(function (die, i)
+    //     {
+    //         $displayElement.children(`:nth-child(${i+1})`).attr('src', getDieFaceImg(die));
+    //     });
+    // }
+
+    $displayElement.each(function ()
+    {
+        let $this = $(this);
+
+        if ($this.hasClass('playerRoll'))
         {
-            $displayElement.children(`:nth-child(${i+1})`).attr('src', getDieFaceImg(die));
-        });
-    }
-    else
-    {//player turn
-        player.dice.forEach(function (die, i)
+            player.dice.forEach(function (die, i)
+            {
+                $this.children(`:nth-child(${i+1})`).attr('src', getDieFaceImg(die));
+            });
+        }
+        else
         {
-            $displayElement.children(`:nth-child(${i+1})`).attr('src', getDieFaceImg(die));
-        });
-    }
+            computer.dice.forEach(function (die, i)
+            {
+                $this.children(`:nth-child(${i+1})`).attr('src', getDieFaceImg(die));
+            });
+        }
+    });
 }
 
 //TODO Change turn structure so that the game is 3 turns long, each turn both player and computer roll
 //TODO update showDiceRolled to work with the new turn structure
 //TODO update getDieElement to work with new turn structure. Maybe add new class to the elems and select both
+//TODO add some animation
