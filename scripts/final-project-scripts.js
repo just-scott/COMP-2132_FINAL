@@ -8,6 +8,11 @@ const $computerScore = $('#computerScore');
 
 const $advanceGame = $('#advanceGame');
 const $helpButton = $('#helpButton');
+const $dieFaces = $('.dieFaces');
+const $handScores = $('.handScores');
+const $winCount = $('#wins');
+const $tieCount = $('#ties');
+const $lossCount = $('#losses');
 
 const computerPlayerNames = ['DB Cooper', 'Wild Bill', 'El Matador', 'Devilish Dan', 'Al Capone', 'Don Juan'];
 const DICE_FADE_DURATION = 1500;
@@ -15,6 +20,7 @@ const DICE_FADE_DURATION = 1500;
 
 let playerName = prompt('Enter your name to play: ');
 let winCount = 0;
+let tieCount = 0;
 let lossCount = 0;
 let turnNumber = 0;
 
@@ -29,6 +35,11 @@ let computer;
 function setupGame()
 {
     console.log('setting up game');
+
+    $dieFaces.hide();
+    $handScores.hide();
+
+    $advanceGame.val('Roll Next Hand');
 
     player = new Player(playerName);
     computer = new Player(getComputerName());
@@ -127,6 +138,7 @@ function showDiceRolled()
             {
                 $this.children(`:nth-child(${i+1})`).attr('src', getDieFaceImg(die));
                 $this.children(`:nth-child(${i+1})`).fadeIn(DICE_FADE_DURATION);
+                $this.children(':nth-child(3)').text(player.computeScore()).fadeIn(DICE_FADE_DURATION);
             });
         }
         else
@@ -135,6 +147,7 @@ function showDiceRolled()
             {
                 $this.children(`:nth-child(${i+1})`).attr('src', getDieFaceImg(die));
                 $this.children(`:nth-child(${i+1})`).fadeIn(DICE_FADE_DURATION);
+                $this.children(':nth-child(3)').text(computer.computeScore()).fadeIn(DICE_FADE_DURATION);
             });
         }
     });
@@ -143,6 +156,45 @@ function showDiceRolled()
 function rollingDiceAnimation()
 {
 
+}
+
+function takeTurn()
+{
+    player.clearDice();
+    computer.clearDice();
+
+    player.rollDice();
+    computer.rollDice();
+
+    player.score += player.computeScore();
+    computer.score += computer.computeScore();
+    $playerScore.text(player.score);
+    $computerScore.text(computer.score);
+
+    showDiceRolled();
+
+    turnNumber++;
+
+    if (turnNumber >= 3)
+    {
+        $advanceGame.val('Play Again!');
+
+        if (player.score > computer.score)
+        {
+            winCount ++;
+            $winCount.text(winCount);
+        }
+        else if (player.score === computer.score)
+        {
+            tieCount ++;
+            $tieCount.text(tieCount);
+        }
+        else
+        {
+            lossCount ++;
+            $lossCount.text(lossCount);
+        }
+    }
 }
 
 //TODO add some animation

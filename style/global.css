@@ -58,9 +58,10 @@
     border: lightgreen 2px solid;
 }
 
-#gameStats > div:nth-child(1)
+#gameStats > div:nth-child(2)
 {
     margin-right: 20px;
+    margin-left: 20px;
 }
 
 .dieFaces
