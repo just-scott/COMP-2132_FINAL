@@ -7,6 +7,8 @@ $playerFirstRoll.children(':nth-child(2)').attr('src', 'images/die-face-5.png');
 
 $('#computerSecondRoll').children(':nth-child(2)').attr('src', 'images/die-face-5.png');
 
+$('.dieFaces').hide();
+
 setupGame();
 
 $advanceGame.click(function ()

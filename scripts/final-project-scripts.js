@@ -10,6 +10,8 @@ const $advanceGame = $('#advanceGame');
 const $helpButton = $('#helpButton');
 
 const computerPlayerNames = ['DB Cooper', 'Wild Bill', 'El Matador', 'Devilish Dan', 'Al Capone', 'Don Juan'];
+const DICE_FADE_DURATION = 1500;
+
 
 let playerName = prompt('Enter your name to play: ');
 let winCount = 0;
@@ -116,6 +118,7 @@ function showDiceRolled()
 
     $displayElement.each(function ()
     {
+
         let $this = $(this);
 
         if ($this.hasClass('playerRoll'))
@@ -123,6 +126,7 @@ function showDiceRolled()
             player.dice.forEach(function (die, i)
             {
                 $this.children(`:nth-child(${i+1})`).attr('src', getDieFaceImg(die));
+                $this.children(`:nth-child(${i+1})`).fadeIn(DICE_FADE_DURATION);
             });
         }
         else
@@ -130,12 +134,15 @@ function showDiceRolled()
             computer.dice.forEach(function (die, i)
             {
                 $this.children(`:nth-child(${i+1})`).attr('src', getDieFaceImg(die));
+                $this.children(`:nth-child(${i+1})`).fadeIn(DICE_FADE_DURATION);
             });
         }
     });
 }
 
-//TODO Change turn structure so that the game is 3 turns long, each turn both player and computer roll
-//TODO update showDiceRolled to work with the new turn structure
-//TODO update getDieElement to work with new turn structure. Maybe add new class to the elems and select both
+function rollingDiceAnimation()
+{
+
+}
+
 //TODO add some animation
