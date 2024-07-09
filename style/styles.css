@@ -1,0 +1,56 @@
+#gameContainer {
+  display: flex;
+  flex-direction: row;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+#playerDashboard {
+  display: flex;
+  flex-direction: column;
+  border: blue solid 2px;
+  min-width: 25vw;
+}
+
+#computerDashboard {
+  display: flex;
+  flex-direction: column;
+  border: blue solid 2px;
+  min-width: 25vw;
+}
+
+#gameDisplay {
+  display: flex;
+  flex-direction: column;
+  min-width: 50vw;
+}
+
+#scoreBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#diceRollingArea {
+  min-height: 60vh;
+  border: blue solid 2px;
+}
+
+#gameControls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#gameStats {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#gameStats > div:nth-child(2) {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+/*# sourceMappingURL=styles.css.map */
