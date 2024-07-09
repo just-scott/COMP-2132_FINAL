@@ -1,56 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Hind:wght@700&family=Varela+Round&display=swap");
+body {
+  font-family: "Varela Round", sans-serif;
+  background-color: lightsteelblue;
+}
+
 #gameContainer {
   display: flex;
   flex-direction: row;
   min-width: 100vw;
   min-height: 100vh;
+  justify-content: space-around;
 }
 
-#playerDashboard {
+.dashboard {
   display: flex;
   flex-direction: column;
-  border: blue solid 2px;
-  min-width: 25vw;
+  min-width: 20vw;
+  border: #ff0000;
 }
 
-#computerDashboard {
+.dashboardContainer {
   display: flex;
   flex-direction: column;
-  border: blue solid 2px;
-  min-width: 25vw;
+  justify-content: space-evenly;
+  border: #ff0000;
+  min-height: 85vh;
+}
+
+.gamePlayerNames {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 80px;
+  font-weight: bold;
+  font-size: xx-large;
 }
 
 #gameDisplay {
   display: flex;
   flex-direction: column;
   min-width: 50vw;
+  border: #ff0000;
 }
 
 #scoreBar {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  min-height: 20vh;
+  align-items: center;
 }
 
 #diceRollingArea {
   min-height: 60vh;
-  border: blue solid 2px;
+  border: solid saddlebrown 10px;
+  border-radius: 30px;
+  background-color: #3f7824;
 }
 
 #gameControls {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  min-height: 40px;
+  margin-top: 15px;
 }
 
 #gameStats {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  min-height: 40px;
+  align-items: center;
+  border: #ff0000;
+  margin-top: 15px;
 }
 
 #gameStats > div:nth-child(2) {
   margin-left: 20px;
   margin-right: 20px;
+}
+
+.diceRollContainers {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.computerRoll {
+  flex-direction: row-reverse;
+}
+
+.handScores {
+  font-size: x-large;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=styles.css.map */

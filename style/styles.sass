@@ -1,53 +1,97 @@
 //variables
-$testBorder: blue solid 2px
-$dashboardWidth: 25vw
+$testBorder: #ff0000
+$dashboardWidth: 20vw
 $gameDisplayWidth: 50vw
 $diceRollingViewHeight: 60vh
 $resultsBarSpacer: 20px
+$scoreBarHeight: 20vh
+
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@700&family=Varela+Round&display=swap')
+
 
 //styles
+body
+  font-family: "Varela Round", sans-serif
+  background-color: lightsteelblue
+
 #gameContainer
   display: flex
   flex-direction: row
   min-width: 100vw
   min-height: 100vh
+  justify-content: space-around
 
-#playerDashboard
+.dashboard
   display: flex
   flex-direction: column
-  border: $testBorder
   min-width: $dashboardWidth
+  border: $testBorder
 
-#computerDashboard
+.dashboardContainer
   display: flex
   flex-direction: column
+  justify-content: space-evenly
   border: $testBorder
-  min-width: $dashboardWidth
+  min-height: 85vh
+
+.gamePlayerNames
+  display: flex
+  flex-direction: row
+  justify-content: center
+  align-items: center
+  min-height: 80px
+  font-weight: bold
+  font-size: xx-large
 
 #gameDisplay
   display: flex
   flex-direction: column
   min-width: $gameDisplayWidth
+  border: $testBorder
 
 #scoreBar
   display: flex
   flex-direction: row
   justify-content: space-around
+  min-height: $scoreBarHeight
+  align-items: center
 
 #diceRollingArea
   min-height: $diceRollingViewHeight
-  border: $testBorder
+  border: solid saddlebrown 10px
+  border-radius: 30px
+  background-color: #3f7824
 
 #gameControls
   display: flex
   flex-direction: row
   justify-content: space-around
+  min-height: 40px
+  margin-top: 15px
 
 #gameStats
   display: flex
   flex-direction: row
   justify-content: center
+  min-height: 40px
+  align-items: center
+  border: $testBorder
+  margin-top: 15px
 
 #gameStats > div:nth-child(2)
   margin-left: $resultsBarSpacer
   margin-right: $resultsBarSpacer
+
+.diceRollContainers
+  display: flex
+  align-items: center
+  justify-content: space-around
+
+.computerRoll
+  flex-direction: row-reverse
+
+.handScores
+  font-size: x-large
+  font-weight: bold
+
+
