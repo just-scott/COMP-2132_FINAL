@@ -13,6 +13,8 @@ const $handScores = $('.handScores');
 const $winCount = $('#wins');
 const $tieCount = $('#ties');
 const $lossCount = $('#losses');
+const $diceGif = $('#diceGif');
+const $gameMessage = $('#gameMessage');
 
 const computerPlayerNames = ['DB Cooper', 'Wild Bill', 'El Matador', 'Devilish Dan', 'Al Capone', 'Don Juan'];
 const DICE_FADE_DURATION = 1500;
@@ -23,6 +25,9 @@ let winCount = 0;
 let tieCount = 0;
 let lossCount = 0;
 let turnNumber = 0;
+
+let rollingDiceTimeout;
+let buttonTimeout;
 
 let player;
 let computer;
@@ -38,13 +43,14 @@ function setupGame()
 
     $dieFaces.hide();
     $handScores.hide();
+    $diceGif.hide();
 
     $advanceGame.val('Roll Next Hand');
+    $gameMessage.text('Roll to play');
 
     player = new Player(playerName);
     computer = new Player(getComputerName());
 
-    // $playerName.text(player.name);
     $computerName.text(computer.name);
 
     player.score = 0;
@@ -75,26 +81,14 @@ function getDieElement()
     switch (turnNumber)
     {
         case 0:
-            // elementId = $('#playerFirstRoll');
             $elementsSelector = $('.firstRoll');
             break;
         case 1:
-            // elementId = $('#computerFirstRoll');
             $elementsSelector = $('.secondRoll');
             break;
         case 2:
-            // elementId = $('#playerSecondRoll');
             $elementsSelector = $('.thirdRoll');
             break;
-        // case 3:
-        //     elementId = $('#computerSecondRoll');
-        //     break;
-        // case 4:
-        //     elementId = $('#playerThirdRoll');
-        //     break;
-        // case 5:
-        //     elementId = $('#computerThirdRoll');
-        //     break;
         default:
             console.log(`Error: turn number is ${turnNumber}`);
     }
@@ -109,23 +103,6 @@ function getDieFaceImg(number)
 function showDiceRolled()
 {
     let $displayElement = getDieElement();
-
-    // if (turnNumber % 2)
-    //     //players turns are even, computer turns are odd
-    //     //so on a player's turn this will evaluate as false (0)
-    // {//computer turn
-    //     computer.dice.forEach(function (die, i)
-    //     {
-    //         $displayElement.children(`:nth-child(${i+1})`).attr('src', getDieFaceImg(die));
-    //     });
-    // }
-    // else
-    // {//player turn
-    //     player.dice.forEach(function (die, i)
-    //     {
-    //         $displayElement.children(`:nth-child(${i+1})`).attr('src', getDieFaceImg(die));
-    //     });
-    // }
 
     $displayElement.each(function ()
     {
@@ -153,13 +130,21 @@ function showDiceRolled()
     });
 }
 
-function rollingDiceAnimation()
+function animateDice()
 {
+    $diceGif.fadeIn(100);
 
+    rollingDiceTimeout = setTimeout(function ()
+    {
+        $diceGif.fadeOut(1000);
+    }, 1500);
 }
 
 function takeTurn()
 {
+    $advanceGame.prop('disabled', true);
+    clearTimeout(rollingDiceTimeout);
+
     player.clearDice();
     computer.clearDice();
 
@@ -173,6 +158,13 @@ function takeTurn()
 
     showDiceRolled();
 
+    animateDice();
+
+    buttonTimeout = setTimeout(function ()
+    {
+        $advanceGame.prop('disabled', false);
+    }, 1000);
+
     turnNumber++;
 
     if (turnNumber >= 3)
@@ -183,18 +175,19 @@ function takeTurn()
         {
             winCount ++;
             $winCount.text(winCount);
+            $gameMessage.text("You won!");
         }
         else if (player.score === computer.score)
         {
             tieCount ++;
             $tieCount.text(tieCount);
+            $gameMessage.text('Tie game!');
         }
         else
         {
             lossCount ++;
             $lossCount.text(lossCount);
+            $gameMessage.text('Better luck next time');
         }
     }
 }
-
-//TODO add some animation
