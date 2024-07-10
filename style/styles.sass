@@ -6,6 +6,16 @@ $diceRollingViewHeight: 60vh
 $resultsBarSpacer: 20px
 $scoreBarHeight: 20vh
 
+//mixins
+@mixin flexColumn
+  display: flex
+  flex-direction: column
+
+@mixin flexRow
+  display: flex
+  flex-direction: row
+
+
 @import url('https://fonts.googleapis.com/css2?family=Hind:wght@700&family=Varela+Round&display=swap')
 
 
@@ -15,28 +25,32 @@ body
   background-color: lightsteelblue
 
 #gameContainer
-  display: flex
-  flex-direction: row
+  @include flexRow
+  //display: flex
+  //flex-direction: row
   min-width: 100vw
   min-height: 100vh
   justify-content: space-around
 
 .dashboard
-  display: flex
-  flex-direction: column
+  @include flexColumn
+  //display: flex
+  //flex-direction: column
   min-width: $dashboardWidth
   border: $testBorder
 
 .dashboardContainer
-  display: flex
-  flex-direction: column
+  @include flexColumn
+  //display: flex
+  //flex-direction: column
   justify-content: space-evenly
   border: $testBorder
   min-height: 85vh
 
 .gamePlayerNames
-  display: flex
-  flex-direction: row
+  @include flexRow
+  //display: flex
+  //flex-direction: row
   justify-content: center
   align-items: center
   min-height: 80px
@@ -44,14 +58,16 @@ body
   font-size: xx-large
 
 #gameDisplay
-  display: flex
-  flex-direction: column
+  @include flexColumn
+  //display: flex
+  //flex-direction: column
   min-width: $gameDisplayWidth
   border: $testBorder
 
 #scoreBar
-  display: flex
-  flex-direction: row
+  @include flexRow
+  //display: flex
+  //flex-direction: row
   justify-content: space-around
   min-height: $scoreBarHeight
   align-items: center
@@ -64,15 +80,17 @@ body
   background-color: #3f7824
 
 #gameControls
-  display: flex
-  flex-direction: row
+  @include flexRow
+  //display: flex
+  //flex-direction: row
   justify-content: space-around
   min-height: 40px
   margin-top: 15px
 
 #gameStats
-  display: flex
-  flex-direction: row
+  @include flexRow
+  //display: flex
+  //flex-direction: row
   justify-content: center
   min-height: 40px
   align-items: center
