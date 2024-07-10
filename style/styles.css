@@ -2,6 +2,18 @@
 body {
   font-family: "Varela Round", sans-serif;
   background-color: lightsteelblue;
+  overflow-x: hidden;
+  min-width: 1000px;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #3f7824;
+  border-top: saddlebrown solid 2px;
+  padding: 4px;
+  margin-top: auto;
 }
 
 #gameContainer {
@@ -15,7 +27,7 @@ body {
 .dashboard {
   display: flex;
   flex-direction: column;
-  min-width: 20vw;
+  min-width: 275px;
 }
 
 .dashboardContainer {
@@ -24,6 +36,7 @@ body {
   background-color: #9da9b7;
   border: darkslategray solid 4px;
   border-radius: 25px;
+  box-shadow: #57616c 4px 4px 4px;
   justify-content: space-evenly;
   min-height: 85vh;
 }
@@ -41,16 +54,34 @@ body {
 #gameDisplay {
   display: flex;
   flex-direction: column;
-  min-width: 50vw;
+  min-width: 700px;
+  max-width: 50vw;
   border: none;
 }
 
+@media screen and (min-width: 1500px) {
+  #gameDisplay {
+    min-width: 700px;
+  }
+  .dashboard {
+    min-width: 275px;
+  }
+}
+@media screen and (min-width: 1501px) {
+  #gameDisplay {
+    min-width: 50vw;
+  }
+  .dashboard {
+    min-width: 20vw;
+  }
+}
 #scoreBar {
   display: flex;
   flex-direction: row;
   background-color: #9da9b7;
   border: darkslategray solid 4px;
   border-radius: 25px;
+  box-shadow: #57616c 4px 4px 4px;
   justify-content: space-around;
   min-height: 20vh;
   align-items: center;
@@ -68,6 +99,7 @@ body {
   border: solid saddlebrown 10px;
   border-radius: 30px;
   background-color: #3f7824;
+  box-shadow: #564b4b 5px 5px 5px;
 }
 
 #gameControls {

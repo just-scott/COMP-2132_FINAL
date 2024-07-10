@@ -1,8 +1,8 @@
 //variables
 //$testBorder: #ff0000 solid 2px
 $testBorder: none
-$dashboardWidth: 20vw
-$gameDisplayWidth: 50vw
+$dashboardWidth: 275px
+$gameDisplayWidth: 700px
 $diceRollingViewHeight: 55vh
 $resultsBarSpacer: 20px
 $scoreBarHeight: 20vh
@@ -20,6 +20,7 @@ $scoreBarHeight: 20vh
   background-color: #9da9b7
   border: darkslategray solid 4px
   border-radius: 25px
+  box-shadow: #57616c 4px 4px 4px
 
 
 @import url('https://fonts.googleapis.com/css2?family=Hind:wght@700&family=Varela+Round&display=swap')
@@ -29,6 +30,16 @@ $scoreBarHeight: 20vh
 body
   font-family: "Varela Round", sans-serif
   background-color: lightsteelblue
+  overflow-x: hidden
+  min-width: 1000px
+
+footer
+  @include flexRow
+  justify-content: space-between
+  background-color: #3f7824
+  border-top: saddlebrown solid 2px
+  padding: 4px
+  margin-top: auto
 
 #gameContainer
   @include flexRow
@@ -57,7 +68,20 @@ body
 #gameDisplay
   @include flexColumn
   min-width: $gameDisplayWidth
+  max-width: 50vw
   border: $testBorder
+
+@media screen and (min-width: 1500px)
+  #gameDisplay
+    min-width: $gameDisplayWidth
+  .dashboard
+    min-width: $dashboardWidth
+
+@media screen and (min-width: 1501px)
+  #gameDisplay
+    min-width: 50vw
+  .dashboard
+    min-width: 20vw
 
 #scoreBar
   @include flexRow
@@ -78,6 +102,7 @@ body
   border: solid saddlebrown 10px
   border-radius: 30px
   background-color: #3f7824
+  box-shadow: #564b4b 5px 5px 5px
 
 #gameControls
   @include flexRow
