@@ -1,7 +1,5 @@
 const $playerName = $('#playerName');
 const $playerScore = $('#playerScore');
-const $playerFirstRoll = $('#playerFirstRoll');
-const $playerFirstRollScore = $('#playerScoreFirstRoll');
 
 const $computerName = $('#computerName');
 const $computerScore = $('#computerScore');
@@ -35,6 +33,9 @@ let player;
 let computer;
 
 
+setupGame();
+
+
 /**
  * resets score counters, turn number,
  * gets a new opponent, and starts the game again
@@ -54,6 +55,7 @@ function setupGame()
     player = new Player(playerName);
     computer = new Player(getComputerName());
 
+    $playerName.text(playerName);
     $computerName.text(computer.name);
 
     player.score = 0;
@@ -195,6 +197,18 @@ function takeTurn()
     }
 }
 
+$advanceGame.click(function ()
+{
+    if (turnNumber < 3)
+    {
+        takeTurn();
+    }
+    else
+    {
+        setupGame();
+    }
+});
+
 $helpButton.click(function ()
 {
     $helpPopup.fadeIn(500);
@@ -203,9 +217,4 @@ $helpButton.click(function ()
 $closePopup.click(function ()
 {
     $helpPopup.fadeOut(1000);
-})
-
-
-
-
-
+});

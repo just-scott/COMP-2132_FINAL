@@ -1,6 +1,4 @@
 //variables
-//$testBorder: #ff0000 solid 2px
-$testBorder: none
 $dashboardWidth: 275px
 $gameDisplayWidth: 700px
 $diceRollingViewHeight: 55vh
@@ -69,7 +67,6 @@ footer
   @include flexColumn
   min-width: $gameDisplayWidth
   max-width: 50vw
-  border: $testBorder
 
 @media screen and (min-width: 1500px)
   #gameDisplay
@@ -115,12 +112,10 @@ footer
   justify-content: center
   min-height: 40px
   align-items: center
-  border: $testBorder
   margin-top: 15px
   font-size: larger
 
 #gameMessage
-  border: $testBorder
   color: #076f73
 
 #gameStats > div:nth-child(2)
