@@ -100,11 +100,19 @@ function getDieElement()
     return $elementsSelector;
 }
 
+/**
+ * gets the src of an image of a die
+ * @param number the number rolled
+ * @returns {string} the src for a die with the correct number showing
+ */
 function getDieFaceImg(number)
 {
     return `images/die-face-${number}.png`;
 }
 
+/**
+ * displays the dice rolled in each player's hand in the appropriate element
+ */
 function showDiceRolled()
 {
     let $displayElement = getDieElement();
@@ -135,6 +143,9 @@ function showDiceRolled()
     });
 }
 
+/**
+ * shows a rolling dice animation
+ */
 function animateDice()
 {
     $diceGif.fadeIn(400);
@@ -145,6 +156,15 @@ function animateDice()
     }, 1500);
 }
 
+/**
+ * briefly disables the roll button to allow the player to admire the dice rolling animation
+ * clears the dice in both players' hands
+ * rolls new dice for both players
+ * shows the dice they rolled
+ * shows the dice rolling animation
+ * re-enables the roll button
+ * displays a message and increments the correct counter based on the result of the game if it's the last turn
+ */
 function takeTurn()
 {
     $advanceGame.prop('disabled', true);
