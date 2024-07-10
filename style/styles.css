@@ -91,6 +91,7 @@ body {
 
 #gameMessage {
   border: none;
+  color: #076f73;
 }
 
 #gameStats > div:nth-child(2) {
@@ -109,6 +110,32 @@ body {
 }
 
 .handScores {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+#helpPopup {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  margin: auto;
+  background-color: powderblue;
+  border: lightskyblue solid 5px;
+  border-radius: 20px;
+  padding: 10px;
+  min-height: 400px;
+  justify-content: space-between;
+  font-size: larger;
+  top: 200px;
+}
+
+#helpTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#helpTitle > span {
   font-size: x-large;
   font-weight: bold;
 }

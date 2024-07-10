@@ -40,13 +40,11 @@ body
   @include flexColumn
   min-width: $dashboardWidth
 
-
 .dashboardContainer
   @include flexColumn
   @include darkBorderAndBackground
   justify-content: space-evenly
   min-height: 85vh
-
 
 .gamePlayerNames
   @include flexRow
@@ -98,6 +96,7 @@ body
 
 #gameMessage
   border: $testBorder
+  color: #076f73
 
 #gameStats > div:nth-child(2)
   margin-left: $resultsBarSpacer
@@ -114,5 +113,29 @@ body
 .handScores
   font-size: x-large
   font-weight: bold
+
+#helpPopup
+  @include flexColumn
+  position: absolute
+  margin: auto
+  background-color: powderblue
+  border: lightskyblue solid 5px
+  border-radius: 20px
+  padding: 10px
+  min-height: 400px
+  justify-content: space-between
+  font-size: larger
+  top: 200px
+
+#helpTitle
+  @include flexRow
+  justify-content: space-between
+
+#helpTitle > span
+  font-size: x-large
+  font-weight: bold
+
+
+
 
 

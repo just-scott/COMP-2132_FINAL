@@ -15,6 +15,8 @@ const $tieCount = $('#ties');
 const $lossCount = $('#losses');
 const $diceGif = $('#diceGif');
 const $gameMessage = $('#gameMessage');
+const $helpPopup = $('#helpPopup');
+const $closePopup = $('#closePopup');
 
 const computerPlayerNames = ['DB Cooper', 'Wild Bill', 'El Matador', 'Devilish Dan', 'Al Capone', 'Don Juan'];
 const DICE_FADE_DURATION = 1500;
@@ -44,6 +46,7 @@ function setupGame()
     $dieFaces.hide();
     $handScores.hide();
     $diceGif.hide();
+    $helpPopup.hide();
 
     $advanceGame.val('Roll Next Hand');
     $gameMessage.text('Roll to play');
@@ -191,3 +194,18 @@ function takeTurn()
         }
     }
 }
+
+$helpButton.click(function ()
+{
+    $helpPopup.fadeIn(500);
+});
+
+$closePopup.click(function ()
+{
+    $helpPopup.fadeOut(1000);
+})
+
+
+
+
+
