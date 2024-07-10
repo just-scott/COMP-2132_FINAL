@@ -135,7 +135,7 @@ function showDiceRolled()
 
 function animateDice()
 {
-    $diceGif.fadeIn(100);
+    $diceGif.fadeIn(400);
 
     rollingDiceTimeout = setTimeout(function ()
     {
