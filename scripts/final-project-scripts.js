@@ -18,6 +18,7 @@ const $closePopup = $('#closePopup');
 
 const computerPlayerNames = ['DB Cooper', 'Wild Bill', 'El Matador', 'Devilish Dan', 'Al Capone', 'Don Juan'];
 const DICE_FADE_DURATION = 1500;
+const GAME_MESSAGE_DURATION = 1200;
 
 
 let playerName = prompt('Enter your name to play: ');
@@ -212,7 +213,7 @@ function animateGameMessage(result)
         winCount ++;
         $winCount.text(winCount);
         $gameMessage.text("You won!");
-        $gameMessage.animate({fontSize: '35px'}, 1200);
+        $gameMessage.animate({fontSize: '35px'}, GAME_MESSAGE_DURATION);
         $gameMessage.css('color', '#2e9a0a');
     }
     else if (result === 0) // tie
@@ -220,14 +221,14 @@ function animateGameMessage(result)
         tieCount ++;
         $tieCount.text(tieCount);
         $gameMessage.text('Tie game!');
-        $gameMessage.animate({fontSize: '35px'}, 1200);
+        $gameMessage.animate({fontSize: '35px'}, GAME_MESSAGE_DURATION);
     }
     else //player lost
     {
         lossCount ++;
         $lossCount.text(lossCount);
         $gameMessage.text('Better luck next time');
-        $gameMessage.animate({fontSize: '35px'}, 1200);
+        $gameMessage.animate({fontSize: '35px'}, GAME_MESSAGE_DURATION);
         $gameMessage.css('color', '#980a1a');
     }
 }
