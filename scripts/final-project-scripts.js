@@ -64,6 +64,9 @@ function setupGame()
 
     $playerScore.text(player.score);
     $computerScore.text(computer.score);
+
+    $gameMessage.animate({fontSize: '25px',}, 1000);
+    $gameMessage.css('color', '#0a8e94');
 }
 
 /**
@@ -196,24 +199,36 @@ function takeTurn()
     {
         $advanceGame.val('Play Again!');
 
-        if (player.score > computer.score)
-        {
-            winCount ++;
-            $winCount.text(winCount);
-            $gameMessage.text("You won!");
-        }
-        else if (player.score === computer.score)
-        {
-            tieCount ++;
-            $tieCount.text(tieCount);
-            $gameMessage.text('Tie game!');
-        }
-        else
-        {
-            lossCount ++;
-            $lossCount.text(lossCount);
-            $gameMessage.text('Better luck next time');
-        }
+        let gameResult = player.score - computer.score;
+
+        animateGameMessage(gameResult);
+    }
+}
+
+function animateGameMessage(result)
+{
+    if (result > 0) //player won
+    {
+        winCount ++;
+        $winCount.text(winCount);
+        $gameMessage.text("You won!");
+        $gameMessage.animate({fontSize: '35px'}, 1200);
+        $gameMessage.css('color', '#2e9a0a');
+    }
+    else if (result === 0) // tie
+    {
+        tieCount ++;
+        $tieCount.text(tieCount);
+        $gameMessage.text('Tie game!');
+        $gameMessage.animate({fontSize: '35px'}, 1200);
+    }
+    else //player lost
+    {
+        lossCount ++;
+        $lossCount.text(lossCount);
+        $gameMessage.text('Better luck next time');
+        $gameMessage.animate({fontSize: '35px'}, 1200);
+        $gameMessage.css('color', '#980a1a');
     }
 }
 
